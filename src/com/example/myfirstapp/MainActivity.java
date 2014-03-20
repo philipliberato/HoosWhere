@@ -1,27 +1,22 @@
 package com.example.myfirstapp;
-import android.util.*;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -30,9 +25,6 @@ import android.hardware.SensorManager;
 
 import android.location.*;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.*;
 import com.google.android.maps.*;
 
 public class MainActivity extends MapActivity implements SensorEventListener {
@@ -100,27 +92,6 @@ public class MainActivity extends MapActivity implements SensorEventListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		JSONObject jsonObject = new JSONObject();
-		try{
-		    // Create a new HTTP Client
-		    DefaultHttpClient defaultClient = new DefaultHttpClient();
-		    // Setup the get request
-		    HttpGet httpGetRequest = new HttpGet("http://plato.cs.virginia.edu/~cs4720s14peas/phase1/users/view/rotunda");
-
-		    // Execute the request in the client
-		    HttpResponse httpResponse = defaultClient.execute(httpGetRequest);
-		    // Grab the response
-		    BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent(), "UTF-8"));
-		    String json = reader.readLine();
-
-		    // Instantiate a JSON object from the request response
-		    jsonObject = new JSONObject(json);
-
-		} catch(Exception e){
-		    // In your production code handle any errors and catch the individual exceptions
-		    e.printStackTrace();
-		}
-		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		MapView mapView = (MapView) findViewById(R.id.mapview);
@@ -143,7 +114,6 @@ public class MainActivity extends MapActivity implements SensorEventListener {
 		// Enables the LocationManager to receive Location Updates
 		locMan.requestLocationUpdates(provider, 0, 0, locationListener);
 
-		mapView = (MapView) findViewById(R.id.mapview);
 
 		// Enables the built in zoom controls for this mapView
 		mapView.setBuiltInZoomControls(true);
@@ -156,22 +126,38 @@ public class MainActivity extends MapActivity implements SensorEventListener {
 		myLocationOverlay = new MyLocationOverlay(getBaseContext(), mapView);
 		myLocationOverlay.enableCompass();
 		myLocationOverlay.enableMyLocation();
-		GeoPoint myLocation = myLocationOverlay.getMyLocation();
 		mapView.getOverlays().add(myLocationOverlay);
 		
 		ArrayList<GeoPoint> mockJSONArray = new ArrayList<GeoPoint>();
 		double latitude=38.030044;
 		double longitude=-78.505847;
 		
+//		GetUserData getUserData = new GetUserData();
+//		getUserData.execute("http://plato.cs.virginia.edu/~cs4720s14peas/phase1/users/view/rotunda");
+//		
+//		JSONObject jsonObject = null;
+//		try {
+//			jsonObject = getUserData.get();
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (ExecutionException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		
         // Pulling items from the array
-        try {
-			latitude = jsonObject.getDouble("latitude");
-			longitude = jsonObject.getDouble("longitude");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
+//        try {
+//			if (jsonObject != null) {
+//				JSONObject user = jsonObject.optJSONObject("User");
+//				latitude = user.getDouble("latitude");
+//				longitude = user.getDouble("longitude");
+//			}
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//        
 		
 		double[][] points = { {38.033044,-78.507847} , {38.035320,-78.500728}, {38.036471,-78.499998}, {latitude,longitude} };
 		
@@ -187,11 +173,6 @@ public class MainActivity extends MapActivity implements SensorEventListener {
 	    		itemizedoverlay.addOverlay(overlayitem);
 	    	}
 	  
-		mapOverlays = mapView.getOverlays();
-		drawable = this.getResources().getDrawable(R.drawable.games);
-				
-		
-	    
 	    //add all overlay points
 	    mapOverlays.add(itemizedoverlay);
 	    mapController.animateTo(new GeoPoint(38033044,-78507847));
@@ -221,7 +202,41 @@ public class MainActivity extends MapActivity implements SensorEventListener {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	private class GetUserData extends AsyncTask<String, Void, JSONObject> {
+
+		@Override
+		protected JSONObject doInBackground(String... params) {
+			JSONObject jsonObject = null;
+			try{
+			    // Create a new HTTP Client
+			    DefaultHttpClient defaultClient = new DefaultHttpClient();
+
+			    // Execute a request in the client
+			    HttpResponse httpResponse = defaultClient.execute(new HttpGet(params[0]));
+			    // Grab the response
+			    
+			    BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent(), "UTF-8"));
+			    String json = reader.readLine();
+
+			    // Instantiate a JSON object from the request response
+			    jsonObject = new JSONObject(json);
+
+			} catch(Exception e){
+			    // In your production code handle any errors and catch the individual exceptions
+			    e.printStackTrace();
+			}
+			return jsonObject;
+		}
+		
+		@Override
+		protected void onPostExecute(JSONObject object) {
+			Log.d("GetUserData", "Completed fetching user data");
+		}
+		
+	}
 }
+
+
 
 
