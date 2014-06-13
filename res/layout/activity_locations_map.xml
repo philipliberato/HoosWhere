@@ -10,14 +10,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/oldmapview"
     android:layout_width="fill_parent"
-    android:layout_height="300dp"
+    android:layout_height="400dp"
     android:clickable="true"
     android:apiKey="0Cpz4eZzl0ju50LebKmSsA4u8FnE6tWcfGRIqcQ"
 />
 <fragment
         android:id="@+id/mapview"
         android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         class="com.google.android.gms.maps.MapFragment" />
 
 
