@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="/Users/vishesh2/Documents/UVa/CS/adt-bundle-mac-x86_64-20140321/sdk/add-ons/addon-google_apis_x86-google-19/libs/maps.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="lib" path="/Users/vishesh2/Documents/UVa/adt-bundle-mac-x86_64-20131030/sdk/add-ons/addon-google_apis_x86-google-19/libs/maps.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/Users/vishesh2/Documents/UVa/adt-bundle-mac-x86_64-20131030/sdk/add-ons/addon-google_apis_x86-google-19/docs/reference"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

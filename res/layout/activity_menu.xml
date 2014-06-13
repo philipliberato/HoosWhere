@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+    android:padding="40dp">
+<ImageView 
+    android:id="@+id/logo"
+    android:src="@drawable/logo"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    />
+<RelativeLayout
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+    android:padding="40dp" >
+<TextView
+    android:id="@+id/username"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/UserLogin"
+    android:layout_centerHorizontal="true"
+    android:textSize="40px"
+    android:fontFamily="sans-serif">
+</TextView>
+<TextView
+    android:id="@+id/welcome"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/username"
+    android:textAlignment="center"
+    android:layout_centerHorizontal="true"
+    android:text="Welcome to HoosWhere! This app is designed to meet the users' need to find People and Places. Not sure where to go or where everybody is? Find out! Just select a People list from the menu or a Locations list from the menu to get started."
+    android:textSize="40px" 
+    android:fontFamily="sans-serif">
+</TextView>
+<Button 
+    android:id="@+id/updateLocation"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/welcome" 
+    android:textAlignment="center"   
+    android:textSize="30px"
+    android:textColor="#ffffff"
+    android:text="Update My Location"
+    android:layout_marginTop="40px"
+    android:background="@drawable/hoos_button">
+</Button>
+<Button 
+    android:id="@+id/manageLists"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/btnLogout"
+    android:textAlignment="center"
+    android:textSize="30px" 
+    android:text="Manage User Lists"
+    android:padding="0px"
+    android:visibility="invisible"
+    android:background="@drawable/hoos_button">
+</Button>
+<Button 
+    android:id="@+id/btnLogout"
+    android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@+id/updateLocation"
+	android:text="Logout"
+	android:visibility="invisible"
+	android:textColor="#ffffff"
+	android:background="@drawable/hoos_button"
+	android:padding="10px"
+	android:textSize="30px"
+	android:layout_marginTop="10px"/> 
+</RelativeLayout>
+</LinearLayout>

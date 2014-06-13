@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <RelativeLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:background="#ffffff">
+        <ImageView
+        android:id="@+id/backgroundRotunda"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="UVa"
+        android:layout_alignParentTop="true" android:src="@drawable/uva"/>
+        <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="5dip"
+          android:layout_centerInParent="true">
+          <TextView android:id="@+id/title_text"
+              	android:layout_width="wrap_content"
+              	android:layout_height="fill_parent"
+              	android:gravity="center"
+              	android:text="HoosWhere?"
+              	android:textColor="#ffa319"
+              	android:textSize="70sp"
+              	android:textStyle="italic"
+              	android:fontFamily="sans-serif"
+              	android:shadowColor="#000000"
+              	android:shadowDx="1"
+              	android:shadowDy="1"
+              	android:shadowRadius="1"
+              	/>
+          <Button android:id="@+id/btnLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Login with Facebook"
+                android:textColor="#ffffff"
+                android:background="@drawable/facebook_button"
+                android:padding="10dp"
+                android:layout_marginTop="500px"
+                android:gravity="center"/>
+          <Button android:id="@+id/btnLogout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:visibility="invisible"
+                android:textColor="#ffffff"
+                android:background="@drawable/facebook_button"
+                android:padding="10px"
+                android:layout_marginTop="40px"/> 
+		<!-- Link to Registration Screen -->
+          <TextView android:id="@+id/link_to_register"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dip"
+                android:layout_marginBottom="40dip"
+                android:text="New to HoosWhere? Register here"
+                android:gravity="center"
+                android:textSize="20dip"
+                android:textColor="#0b84aa"
+                android:visibility="invisible"
+                android:layout_below="@+id/btnLogout"/> 
+         </LinearLayout>
+</RelativeLayout>

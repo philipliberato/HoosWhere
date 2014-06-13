@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:src="@drawable/gnome_list_add"
+        android:id="@+id/joinalist"
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+        android:text="Join A List"
+        android:textSize="30sp" 
+        android:padding="30dp"
+        >
+</ImageButton>

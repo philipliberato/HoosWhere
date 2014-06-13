@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+ xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+>
+
+<LinearLayout
+android:id="@+id/llTop"    
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentTop="true"
+android:layout_alignParentRight="true"
+android:paddingBottom="10dp"
+
+>
+
+<ImageView
+    android:id="@+id/closeX"
+    android:src="@drawable/x" 
+    android:layout_width="40px"
+    android:layout_height="40px"
+    android:layout_alignParentTop="true"
+    />
+
+
+</LinearLayout>
+<Button
+    android:id="@+id/ratingButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#000000" 
+    android:text="View/Edit Ratings For This Place"
+	android:layout_below="@+id/llTop"
+	android:layout_centerHorizontal="true"
+	android:layout_marginTop="20px"
+    />
+ 
+
+
+
+</RelativeLayout>

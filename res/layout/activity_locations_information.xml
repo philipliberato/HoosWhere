@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <TextView
+        android:id="@+id/ratingsText"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" 
+        android:textSize="30px"
+        android:text="Rate a Location from 1 to 10 Stars"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120px"/>
+<RelativeLayout 
+    android:id="@+id/Box"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true" >
+    <RatingBar
+        android:id="@+id/goodRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:saveEnabled="true"
+        android:layout_marginTop="30dp"
+        android:numStars="10"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/submitRating"
+        android:layout_width="510px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/goodRatingBar"
+        android:text="			Submit Rating				"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/goodRatingPullView"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" 
+        android:textSize="30px"
+        android:layout_marginTop="20px"
+        android:padding="5dp"
+        android:layout_below="@+id/submitRating"
+        android:layout_centerHorizontal="true">
+    </TextView>
+     <TextView
+        android:id="@+id/busyRatingPullView"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" 
+        android:textSize="30px"
+        android:padding="5dp"
+        android:layout_below="@+id/goodRatingPullView"
+        android:layout_centerHorizontal="true">
+    </TextView>
+</RelativeLayout>
+</RelativeLayout>
