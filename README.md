@@ -1,13 +1,12 @@
 HoosWhere
 =========
 
-Android app Semester project for CS 4720 - Web and Mobile Development at UVa
+Android app Semester project started in CS 4720 - Web and Mobile Development at UVa
+Managed by Vishesh Choudhry
 
-Devs:
+Founding Devs:
 =========
-Zachary Brown (zab7ge)
-
 Vishesh Choudhry (vic3df)
-
+Zachary Brown (zab7ge)
 Lily Park (jp4nt)
 
